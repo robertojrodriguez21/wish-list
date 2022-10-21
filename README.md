@@ -36,7 +36,7 @@ Personal Wish List Application
 
 ---
 
-##
+## Diagrams
 
 ### Component Hierarchy Diagram
 

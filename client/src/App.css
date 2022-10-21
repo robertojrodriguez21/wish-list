@@ -6,7 +6,8 @@ html {
 }
 
 h1 {
-  font-size: 40px;
+  background-color: dimgray;
+  font-size: 35px;
   padding: 20px;
   margin: 0;
 }
