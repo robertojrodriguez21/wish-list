@@ -36,15 +36,15 @@ Personal Wish List Application
 
 ---
 
-## Diagrams
+##
 
 ### Component Hierarchy Diagram
 
 ![Component Hierarchy Diagram](./images/Component%20Hierarchy%20Diagram.png)
 
-### Full Entity Relationship Diagram
+### Entity Relationship Diagram
 
-![Full Entity Relationship Diagram]()
+![Entity Relationship Diagram](./images/Entity%20Relationship%20Diagram.png)
 
 ---
 
