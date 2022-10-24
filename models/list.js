@@ -11,4 +11,4 @@ const listSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = itemSchema
+module.exports = listSchema
