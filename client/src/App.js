@@ -1,8 +1,9 @@
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
-import { Routes, Route } from 'react-router-dom'
+import CreateList from './components/CreateList'
 
 function App() {
   const [items, setItems] = useState([])
@@ -39,10 +40,13 @@ function App() {
 
   return (
     <div className="App">
-      <header>📝 WISH LIST 📝</header>
+      <header>
+        <Link to={'/'}>📝 WISH LIST 📝</Link>
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<Landing lists={lists} items={items} />} />
+          <Route path="/createList" element={<CreateList />} />
         </Routes>
       </main>
     </div>

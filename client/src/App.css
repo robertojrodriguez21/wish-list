@@ -13,9 +13,12 @@ header {
   margin: 0;
 }
 
+main {
+  padding: 20px;
+}
+
 .all-list-cards {
   display: flex;
-  padding: 20px;
 }
 
 .list-card {
@@ -32,4 +35,17 @@ header {
 
 .item-card {
   padding: 5px;
+}
+
+.create-list-button {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px;
+}
+
+a, button {
+  all: unset;
+  cursor: pointer;
 }
