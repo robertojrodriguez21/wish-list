@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [items, setItems] = useState([])
@@ -39,7 +40,11 @@ function App() {
   return (
     <div className="App">
       <header>📝 WISH LIST 📝</header>
-      <Landing lists={lists} items={items} />
+      <main>
+        <Routes>
+          <Route path="/" element={<Landing lists={lists} items={items} />} />
+        </Routes>
+      </main>
     </div>
   )
 }
