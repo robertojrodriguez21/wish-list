@@ -5,9 +5,10 @@ html {
   margin: 0;
 }
 
-h1 {
+header {
   background-color: dimgray;
   font-size: 35px;
+  font-weight: 900;
   padding: 20px;
   margin: 0;
 }

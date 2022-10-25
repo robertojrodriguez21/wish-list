@@ -1,11 +1,11 @@
 import CreateList from "./CreateList";
 import Lists from "./Lists"
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <div>
       <CreateList />
-      <Lists />
+      <Lists lists={props.lists} items={props.items} />
     </div>
   )
 }

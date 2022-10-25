@@ -10,22 +10,39 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-// Routes
-
-// Test Routes
-app.get('/', (req, res) => {
-  res.send({ msg: 'This route is being hit' })
-})
-
-app.get('/test', (req, res) => {
-  res.send(req.body)
-})
-
 // Item Routes
+// Create item --> POST
+app.post('/:listId', async (req, res) => {
+  let createdItem = await Item.create(req.body)
+  res.send(createdItem)
+})
+
 // Read all items --> GET
 app.get('/items', async (req, res) => {
   const allItems = await Item.find({})
   res.send(allItems)
+})
+
+// Read one item --> GET
+app.get('/:listId/:itemId', async (req, res) => {
+  let foundItem = await Item.findById(req.params.itemId)
+  res.json(foundItem)
+})
+
+//List Routes
+// Read all lists --> GET
+app.get('/lists', async (req, res) => {
+  const allLists = await List.find({})
+  res.send(allLists)
+})
+
+// Update one list --> PUT
+app.put('/:listID/:itemId', async (req, res) => {
+  let updatedList = await List.findByIdAndUpdate(req.params.listID, {
+    $push: { items: req.params.itemId }
+  })
+
+  res.json(updatedList)
 })
 
 // End
