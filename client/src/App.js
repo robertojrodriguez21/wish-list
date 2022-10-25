@@ -40,7 +40,6 @@ function App() {
     <div className="App">
       <header>📝 WISH LIST 📝</header>
       <Landing lists={lists} items={items} />
-      {console.log(lists, items)}
     </div>
   )
 }

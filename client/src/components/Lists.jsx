@@ -4,9 +4,8 @@ const Lists = (props) => {
   return (
     <div>
       {props.lists.map((list) => (
-        <h4>{list.name}</h4>
+        <List name={list.name} list={list} items={props.items}/>
       ))}
-      <List />
     </div>
   )
 }

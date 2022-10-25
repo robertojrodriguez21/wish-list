@@ -1,9 +1,13 @@
 import Item from "./Item"
 
-const Items = () => {
+const Items = (props) => {
   return (
     <div>
-      <Item />
+      {props.items.map((item) => (
+        props.listItems.includes(item._id) 
+        ? <Item item={item} />
+        : null
+      ))}
     </div>
   )
 }

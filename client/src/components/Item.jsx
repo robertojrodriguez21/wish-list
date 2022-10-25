@@ -1,8 +1,11 @@
 import UpdateItem from "./UpdateItem"
 
-const Item = () => {
+const Item = (props) => {
   return (
-    <div>
+    <div className="item-card">
+      <div className="item-name">
+        {props.item.name}
+      </div>
       <UpdateItem />
     </div>
   )
