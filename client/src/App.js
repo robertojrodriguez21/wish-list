@@ -1,9 +1,10 @@
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
 import CreateList from './components/CreateList'
+import Item from './components/Item'
 
 function App() {
   const [items, setItems] = useState([])
@@ -47,6 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing lists={lists} items={items} />} />
           <Route path="/createList" element={<CreateList />} />
+          <Route path="/:listId/:itemId" element={<Item />} />
         </Routes>
       </main>
     </div>

@@ -1,13 +1,10 @@
-import Item from "./Item"
+import {Link} from 'react-router-dom'
 
 const Items = (props) => {
   return (
-    <div>
-      {props.items.map((item) => (
-        props.listItems.includes(item._id) 
-        ? <Item key={item._id} item={item} />
-        : null
-      ))}
+    <div className="item-name">
+      <Link to={`.//${props.item._id}`}></Link>
+      {props.item.name}
     </div>
   )
 }

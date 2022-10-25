@@ -1,10 +1,17 @@
-import List from "./List"
+import Items from "./Items"
 
 const Lists = (props) => {
   return (
-    <div className="all-list-cards">
-      {props.lists.map((list) => (
-        <List key={list._id} name={list.name} list={list} items={props.items}/>
+    <div className="list-card">
+      <div className="list-name">
+        {props.list.name}
+      </div>
+      {props.items.map((item) => (
+        <div className="item-card">
+          {props.list.items.includes(item._id) 
+          ? <Items key={item._id} item={item} />
+          : null}
+        </div>
       ))}
     </div>
   )
