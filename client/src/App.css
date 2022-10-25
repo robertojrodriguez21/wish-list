@@ -12,3 +12,24 @@ header {
   padding: 20px;
   margin: 0;
 }
+
+.all-list-cards {
+  display: flex;
+  padding: 20px;
+}
+
+.list-card {
+  background-color: darkslateblue;
+}
+
+.list-name {
+  text-align: center;
+  padding: 10px;
+  background-color: midnightblue;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.item-card {
+  padding: 5px;
+}
