@@ -25,7 +25,7 @@ main {
   background-color: darkslateblue;
 }
 
-.list-name {
+.list-card-name {
   text-align: center;
   padding: 10px;
   background-color: midnightblue;
@@ -48,4 +48,10 @@ main {
 a, button {
   all: unset;
   cursor: pointer;
+}
+
+.breadcrumbs {
+  color: black;
+  font-size: 15px;
+  padding: 10px;
 }

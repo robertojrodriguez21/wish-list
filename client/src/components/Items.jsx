@@ -1,10 +1,10 @@
 import {Link} from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Items = (props) => {
   return (
-    <div className="item-name">
-      <Link to={`.//${props.item._id}`}></Link>
-      {props.item.name}
+    <div className="item-card-name">
+      <Link to={`/${props.listId}/${props.item._id}`}>{props.item.name}</Link>
     </div>
   )
 }

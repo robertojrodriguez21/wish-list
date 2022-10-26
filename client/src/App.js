@@ -4,6 +4,7 @@ import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
 import CreateList from './components/CreateList'
+import List from './components/List'
 import Item from './components/Item'
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing lists={lists} items={items} />} />
           <Route path="/createList" element={<CreateList />} />
+          <Route path="/:listId" element={<List lists={lists} />} />
           <Route path="/:listId/:itemId" element={<Item />} />
         </Routes>
       </main>
