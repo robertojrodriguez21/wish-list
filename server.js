@@ -9,6 +9,7 @@ const app = express()
 // Middleware
 app.use(express.json())
 app.use(cors())
+app.use(express.static(`${__dirname}/client/build`))
 
 // Item Routes
 // Create item --> POST
@@ -46,4 +47,8 @@ app.put('/:listID/:itemId', async (req, res) => {
 })
 
 // End
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
+
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
