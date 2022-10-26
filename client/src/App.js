@@ -10,7 +10,7 @@ import Item from './components/Item'
 function App() {
   const [items, setItems] = useState([])
   const [lists, setLists] = useState([])
-  const [itemFormState, setItemFormState] = useState({
+  const [newItem, setNewItem] = useState({
     name: '',
     description: '',
     image: '',
@@ -22,12 +22,22 @@ function App() {
       }
     ]
   })
-  const [listFormState, setListFormState] = useState({
-    name: '',
-    items: {
-      itemId: ''
-    }
+  const [newList, setNewList] = useState({
+    name: ''
   })
+
+  const addList = (e) => {
+    e.preventDefault()
+    const createdList = {
+      name: newList.name
+    }
+
+    axios.post('/createList', createdList)
+  }
+
+  const handleListChange = (e) => {
+    setNewList({ ...newList, [e.target.name]: e.target.value })
+  }
 
   useEffect(() => {
     const apiCall = async () => {
@@ -48,7 +58,16 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing lists={lists} items={items} />} />
-          <Route path="/createList" element={<CreateList />} />
+          <Route
+            path="/createList"
+            element={
+              <CreateList
+                newList={newList}
+                handleListChange={handleListChange}
+                addList={addList}
+              />
+            }
+          />
           <Route path="/:listId" element={<List lists={lists} />} />
           <Route path="/:listId/:itemId" element={<Item />} />
         </Routes>

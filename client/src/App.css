@@ -14,7 +14,7 @@ header {
 }
 
 main {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
 .all-list-cards {
@@ -23,18 +23,19 @@ main {
 
 .list-card {
   background-color: darkslateblue;
+  margin: 10px 25px;
 }
 
 .list-card-name {
   text-align: center;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: midnightblue;
   font-size: 25px;
   font-weight: 700;
 }
 
 .item-card {
-  padding: 5px;
+  padding: 10px;
 }
 
 .create-list-button {
@@ -51,7 +52,16 @@ a, button {
 }
 
 .breadcrumbs {
+  background-color: lightslategray;
   color: black;
   font-size: 15px;
-  padding: 10px;
+  padding: 3px 10px;
+}
+
+label {
+  margin: 5px;
+}
+
+.list-form .create-list-button {
+  margin: 10px 0;
 }
