@@ -17,7 +17,7 @@ const List = (props) => {
       <div className='breadcrumbs'>
         <Link to={'/'}>ALL LISTS</Link>
       </div>
-      <div>
+      <div className='detailed-list'>
         <div className='list-name'>{list.name}</div>
         {props.items.map((item) => (
         <div className="item-card">
