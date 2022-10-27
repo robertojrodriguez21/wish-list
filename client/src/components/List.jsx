@@ -17,6 +17,10 @@ const List = (props) => {
       <div className='breadcrumbs'>
         <Link to={'/'}>ALL LISTS</Link>
       </div>
+      <div className='list-buttons'>
+        <button className='add-item-button'>Add Item</button>
+        <button className='delete-list-button'>Delete List</button>
+      </div>
       <div className='detailed-list'>
         <div className='list-name'>{list.name}</div>
         {props.items.map((item) => (

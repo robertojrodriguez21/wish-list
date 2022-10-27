@@ -77,3 +77,19 @@ label {
 .list-form .create-list-button {
   margin: 10px 0;
 }
+
+.add-item-button {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.delete-list-button {
+  background-color: darkred;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px;
+}
