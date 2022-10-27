@@ -68,7 +68,10 @@ function App() {
               />
             }
           />
-          <Route path="/:listId" element={<List lists={lists} />} />
+          <Route
+            path="/:listId"
+            element={<List lists={lists} items={items} />}
+          />
           <Route path="/:listId/:itemId" element={<Item />} />
         </Routes>
       </main>

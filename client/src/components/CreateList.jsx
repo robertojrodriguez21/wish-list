@@ -6,6 +6,7 @@ const CreateList = (props) => {
   const handleSubmit = (e) => {
     props.addList(e)
     navigate('/')
+    window.location.reload(false)
   }
 
   const newList = props.newList

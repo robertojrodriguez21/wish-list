@@ -1,5 +1,6 @@
 import {Link, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import Items from './Items'
 
 const List = (props) => {
   const [list, setList] = useState('')
@@ -18,6 +19,13 @@ const List = (props) => {
       </div>
       <div>
         <div className='list-name'>{list.name}</div>
+        {props.items.map((item) => (
+        <div className="item-card">
+          {list.items.includes(item._id) 
+          ? <Items key={item._id} listId={list._id} item={item} />
+          : null}
+        </div>
+      ))}
       </div>
     </div>
   ) : null
