@@ -4,6 +4,7 @@ import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
 import CreateList from './components/CreateList'
+import CreateItem from './components/CreateItem'
 import List from './components/List'
 import Item from './components/Item'
 
@@ -33,6 +34,11 @@ function App() {
     }
 
     axios.post('/createList', createdList)
+  }
+
+  const deleteList = (listId, e) => {
+    e.preventDefault()
+    axios.delete(`/${listId}`)
   }
 
   const handleListChange = (e) => {
@@ -68,9 +74,12 @@ function App() {
               />
             }
           />
+          <Route path="/:listId/createItem" element={<CreateItem />} />
           <Route
             path="/:listId"
-            element={<List lists={lists} items={items} />}
+            element={
+              <List deleteList={deleteList} lists={lists} items={items} />
+            }
           />
           <Route path="/:listId/:itemId" element={<Item />} />
         </Routes>

@@ -4,7 +4,7 @@ const Item = (props) => {
   return (
     <div>
       <div className='breadcrumbs'>
-        <Link to={'/'}>ALL LISTS</Link> {'>'} <Link></Link>
+        <Link to={'/'}>Home</Link> {'>'} <Link></Link>
       </div>
     </div>
   )

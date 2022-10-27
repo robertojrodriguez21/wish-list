@@ -21,6 +21,7 @@ main {
 /* Lists */
 .all-list-cards {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .list-card {
@@ -59,6 +60,7 @@ main {
   color: black;
   font-size: 15px;
   padding: 3px 10px;
+  margin: 0 0 10px 0;
 }
 
 /* Forms */

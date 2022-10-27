@@ -41,6 +41,12 @@ app.put('/:listID/:itemId', async (req, res) => {
   res.json(updatedList)
 })
 
+// Delete one list --> DELETE
+app.delete('/:listId', async (req, res) => {
+  let deletedList = await List.findByIdAndDelete(req.params.listId)
+  res.json(deletedList)
+})
+
 // End
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)

@@ -1,16 +1,23 @@
-import {Link, useParams} from 'react-router-dom'
+import {Link, useParams, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Items from './Items'
 
 const List = (props) => {
+  let navigate = useNavigate()
   const [list, setList] = useState('')
   let {listId} = useParams()
 
   useEffect(() => {
-    let selectedList = props.lists.find((list)=>list._id === listId)
+    let selectedList = props.lists.find((list) => list._id === listId)
 
     setList(selectedList)
   }, [props.lists, listId])
+
+  const handleDeleteList = async (e) => {
+    await props.deleteList(list._id, e)
+    navigate('/')
+    window.location.reload(false)
+  }
 
   return list ? (
     <div>
@@ -18,8 +25,8 @@ const List = (props) => {
         <Link to={'/'}>HOME</Link> {'>'} {list.name.toUpperCase()}
       </div>
       <div className='list-buttons'>
-        <button className='add-item-button'>Add Item</button>
-        <button className='delete-list-button'>Delete List</button>
+        <button className='add-item-button'><Link to={`/${list._id}/createItem`}>Add Item</Link></button>
+        <button className='delete-list-button' onClick={handleDeleteList}>Delete List</button>
       </div>
       <div className='detailed-list'>
         <div className='list-name'>{list.name}</div>
