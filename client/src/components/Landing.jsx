@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 const Landing = (props) => {
   return (
     <div>
+      <div className="breadcrumbs">HOME</div>
       <button className="create-list-button"><Link to='/createList'>+ Create List</Link></button>
       <div className="all-list-cards">
         {props.lists.map((list) => (

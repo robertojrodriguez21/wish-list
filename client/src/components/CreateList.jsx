@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 const CreateList = (props) => {
   let navigate = useNavigate()
@@ -13,6 +13,9 @@ const CreateList = (props) => {
 
   return (
     <div>
+      <div className='breadcrumbs'>
+        <Link to={'/'}>HOME</Link> {'>'} CREATE LIST
+      </div>
       <h1>Create a New List</h1>
       <form className="list-form" onSubmit={ handleSubmit }>
         <label>List Name: </label>

@@ -15,7 +15,7 @@ const List = (props) => {
   return list ? (
     <div>
       <div className='breadcrumbs'>
-        <Link to={'/'}>ALL LISTS</Link>
+        <Link to={'/'}>HOME</Link> {'>'} {list.name.toUpperCase()}
       </div>
       <div className='list-buttons'>
         <button className='add-item-button'>Add Item</button>
