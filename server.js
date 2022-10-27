@@ -12,6 +12,12 @@ app.use(cors())
 app.use(express.static(`${__dirname}/client/build`))
 
 // Item Routes
+// Create one item --> POST
+app.post('/list/:listId/createItem', async (req, res) => {
+  let createdItem = await Item.create(req.body)
+  res.send(createdItem)
+})
+
 // Read all items --> GET
 app.get('/items', async (req, res) => {
   const allItems = await Item.find({})
@@ -19,9 +25,8 @@ app.get('/items', async (req, res) => {
 })
 
 // List Routes
-// Create list --> POST
+// Create one list --> POST
 app.post('/createList', async (req, res) => {
-  console.log(req.body)
   let createdList = await List.create(req.body)
   res.send(createdList)
 })
@@ -33,16 +38,16 @@ app.get('/lists', async (req, res) => {
 })
 
 // Update one list --> PUT
-app.put('/:listID/:itemId', async (req, res) => {
-  let updatedList = await List.findByIdAndUpdate(req.params.listID, {
-    $push: { items: req.params.itemId }
+app.put('/list/:listId/createItem', async (req, res) => {
+  let updatedList = await List.findByIdAndUpdate(req.params.listId, {
+    $push: { items: req.body._id }
   })
 
   res.json(updatedList)
 })
 
 // Delete one list --> DELETE
-app.delete('/:listId', async (req, res) => {
+app.delete('/list/:listId', async (req, res) => {
   let deletedList = await List.findByIdAndDelete(req.params.listId)
   res.json(deletedList)
 })

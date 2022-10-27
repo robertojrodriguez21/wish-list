@@ -5,7 +5,7 @@ const Lists = (props) => {
   return (
     <div className="list-card">
       <div className="list-card-name">
-        <Link to={`/${props.list._id}`}>{props.list.name}</Link>
+        <Link to={`/list/${props.list._id}`}>{props.list.name}</Link>
       </div>
       {props.items.map((item) => (
         <div className="item-card">

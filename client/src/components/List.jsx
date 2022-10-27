@@ -25,7 +25,7 @@ const List = (props) => {
         <Link to={'/'}>HOME</Link> {'>'} {list.name.toUpperCase()}
       </div>
       <div className='list-buttons'>
-        <button className='add-item-button'><Link to={`/${list._id}/createItem`}>Add Item</Link></button>
+        <button className='add-item-button'><Link to={`/list/${list._id}/createItem`}>Add Item</Link></button>
         <button className='delete-list-button' onClick={handleDeleteList}>Delete List</button>
       </div>
       <div className='detailed-list'>

@@ -16,16 +16,35 @@ function App() {
     description: '',
     image: '',
     budget: '',
-    links: [
-      {
-        websiteName: '',
-        websiteLink: ''
-      }
-    ]
+    links: {
+      websiteName: '',
+      websiteLink: ''
+    }
   })
   const [newList, setNewList] = useState({
     name: ''
   })
+
+  const addItem = (e) => {
+    e.preventDefault()
+    const createdItem = {
+      name: newItem.name,
+      description: newItem.description,
+      image: newItem.image,
+      budget: parseInt(newItem.budget),
+      links: {
+        websiteName: newItem.websiteName,
+        websiteLink: newItem.websiteLink
+      }
+    }
+
+    axios.post('/list/:listId/createItem', createdItem)
+    axios.put('/list/:listId/createItem', createdItem)
+  }
+
+  const handleItemChange = (e) => {
+    setNewItem({ ...newItem, [e.target.name]: e.target.value })
+  }
 
   const addList = (e) => {
     e.preventDefault()
@@ -36,13 +55,13 @@ function App() {
     axios.post('/createList', createdList)
   }
 
-  const deleteList = (listId, e) => {
-    e.preventDefault()
-    axios.delete(`/${listId}`)
-  }
-
   const handleListChange = (e) => {
     setNewList({ ...newList, [e.target.name]: e.target.value })
+  }
+
+  const deleteList = (listId, e) => {
+    e.preventDefault()
+    axios.delete(`/list/${listId}`)
   }
 
   useEffect(() => {
@@ -74,14 +93,24 @@ function App() {
               />
             }
           />
-          <Route path="/:listId/createItem" element={<CreateItem />} />
           <Route
-            path="/:listId"
+            path="/list/:listId/createItem"
+            element={
+              <CreateItem
+                lists={lists}
+                newItem={newItem}
+                handleItemChange={handleItemChange}
+                addItem={addItem}
+              />
+            }
+          />
+          <Route
+            path="/list/:listId"
             element={
               <List deleteList={deleteList} lists={lists} items={items} />
             }
           />
-          <Route path="/:listId/:itemId" element={<Item />} />
+          <Route path="/list/:listId/item/:itemId" element={<Item />} />
         </Routes>
       </main>
     </div>
