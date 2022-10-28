@@ -19,7 +19,7 @@ main {
 }
 
 /* Lists */
-.all-list-cards {
+.all-list-cards, .item-link-card {
   display: flex;
   flex-wrap: wrap;
 }
@@ -56,7 +56,7 @@ main {
   font-weight: 800;
 }
 
-.item-description, .item-budget, .item-link, .item-add-link-form {
+.item-description, .item-budget, .item-link-card, .item-add-link-form {
   background-color: darkslateblue;
   padding: 10px 25px;
 }
@@ -71,6 +71,10 @@ main {
   padding: 10px 25px;
   background-color: midnightblue;
   font-weight: 600;
+}
+
+.item-link {
+  padding: 2px 0;
 }
 
 /* Breadcrumbs */
@@ -127,4 +131,12 @@ a, button {
   font-size: 15px;
   padding: 5px;
   margin: 5px;
+}
+
+.delete-link-button {
+  background-color: darkred;
+  color: white;
+  padding: 2px 5px;
+  margin: 0 10px 0 0;
+  font-weight: 900;
 }

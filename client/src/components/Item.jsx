@@ -49,7 +49,10 @@ const Item = (props) => {
         <div className='item-budget'>Budget: ${item.budget}</div>
         <div className='item-links-header'>My Links</div>
         {item.links.map(link => (
-          <div className='item-link'><a href={link.websiteLink} target="_blank">{link.websiteName}</a></div>
+          <div className='item-link-card'>
+            <div><button className='delete-link-button'>X</button></div>
+            <div className='item-link'><a href={link.websiteLink} target="_blank">{link.websiteName}</a></div>
+          </div>
         ))}
       </div>
       <div className='item-add-link-header'>Add Link</div>
