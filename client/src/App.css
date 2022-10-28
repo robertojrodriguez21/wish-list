@@ -29,6 +29,11 @@ main {
   margin: 10px 25px;
 }
 
+.create-list-form {
+  background-color: darkslateblue;
+  padding: 10px 25px;
+}
+
 .list-card-name {
   text-align: center;
   padding: 10px 20px;
@@ -37,7 +42,7 @@ main {
   font-weight: 700;
 }
 
-.list-name {
+.list-name, .create-list-title {
   padding: 15px 20px;
   background-color: midnightblue;
   font-size: 30px;

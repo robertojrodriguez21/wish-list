@@ -16,8 +16,8 @@ const CreateList = (props) => {
       <div className='breadcrumbs'>
         <Link to={'/'}>HOME</Link> {'>'} CREATE LIST
       </div>
-      <h1>Create a New List</h1>
-      <form className="list-form" onSubmit={ handleSubmit }>
+      <div className='create-list-title'>Create a New List</div>
+      <form className="create-list-form" onSubmit={ handleSubmit }>
         <label>List Name: </label>
         <input type='text' value={newList.name} onChange={props.handleListChange} name={'name'}></input>
         <br></br><br></br>
