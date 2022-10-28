@@ -21,7 +21,6 @@ const Item = (props) => {
 
   const handleSubmit = async (e) => {
     await props.addLink(e)
-    navigate(`/`)
     navigate(`/list/${list._id}/item/${item._id}`)
     window.location.reload(false)
   }

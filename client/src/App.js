@@ -166,7 +166,7 @@ function App() {
           />
           <Route
             path="/list/:listId/item/:itemId/updateItem"
-            element={<UpdateItem />}
+            element={<UpdateItem lists={lists} items={items} />}
           />
         </Routes>
       </main>
