@@ -27,7 +27,25 @@ function App() {
   const [newList, setNewList] = useState({
     name: ''
   })
+  const [newLink, setNewLink] = useState({
+    websiteName: '',
+    websiteLink: ''
+  })
 
+  // Input Handlers
+  const handleItemChange = (e) => {
+    setNewItem({ ...newItem, [e.target.name]: e.target.value })
+  }
+
+  const handleListChange = (e) => {
+    setNewList({ ...newList, [e.target.name]: e.target.value })
+  }
+
+  const handleLinkChange = (e) => {
+    setNewLink({ ...newLink, [e.target.name]: e.target.value })
+  }
+
+  // Item API Calls
   const addItem = async (e) => {
     e.preventDefault()
     const createdItem = {
@@ -50,12 +68,20 @@ function App() {
     await axios.put('/list/:listId/createItem', itemForList)
   }
 
-  const updateList = async () => {
-    await axios.put('/list/:listId/createItem')
+  const addLink = async (e) => {
+    e.preventDefault()
+    const createdLink = {
+      websiteName: newLink.websiteName,
+      websiteLink: newLink.websiteLink
+    }
+
+    axios.put('/list/:listId/item/:itemId', createdLink)
   }
 
-  const handleItemChange = (e) => {
-    setNewItem({ ...newItem, [e.target.name]: e.target.value })
+  // List API Calls
+  const deleteList = (listId, e) => {
+    e.preventDefault()
+    axios.delete(`/list/${listId}`)
   }
 
   const addList = (e) => {
@@ -67,15 +93,11 @@ function App() {
     axios.post('/createList', createdList)
   }
 
-  const handleListChange = (e) => {
-    setNewList({ ...newList, [e.target.name]: e.target.value })
+  const updateList = async () => {
+    await axios.put('/list/:listId/createItem')
   }
 
-  const deleteList = (listId, e) => {
-    e.preventDefault()
-    axios.delete(`/list/${listId}`)
-  }
-
+  // Sets Items and Lists
   useEffect(() => {
     const apiCall = async () => {
       let listResponse = await axios.get('http://localhost:3001/lists')
@@ -87,6 +109,7 @@ function App() {
     apiCall()
   }, [])
 
+  // Main
   return (
     <div className="App">
       <header>
@@ -125,7 +148,15 @@ function App() {
           />
           <Route
             path="/list/:listId/item/:itemId"
-            element={<Item lists={lists} items={items} />}
+            element={
+              <Item
+                lists={lists}
+                items={items}
+                handleLinkChange={handleLinkChange}
+                newLink={newLink}
+                addLink={addLink}
+              />
+            }
           />
           <Route
             path="/list/:listId/item/:itemId/updateItem"

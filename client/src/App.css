@@ -24,7 +24,7 @@ main {
   flex-wrap: wrap;
 }
 
-.list-card {
+.list-card, .detailed-list {
   background-color: darkslateblue;
   margin: 10px 25px;
 }
@@ -44,14 +44,33 @@ main {
   font-weight: 800;
 }
 
-.detailed-list {
-  background-color: darkslateblue;
-  margin: 10px 25px;
-}
-
 /* Items */
 .item-card {
   padding: 10px;
+}
+
+.item-name {
+  padding: 15px 20px;
+  background-color: midnightblue;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.item-description, .item-budget, .item-link, .item-add-link-form {
+  background-color: darkslateblue;
+  padding: 10px 25px;
+}
+
+.item-img img {
+  width: 400px;
+  height: auto;
+  padding: 10px;
+}
+
+.item-links-header, .item-add-link-header {
+  padding: 10px 25px;
+  background-color: midnightblue;
+  font-weight: 600;
 }
 
 /* Breadcrumbs */
@@ -100,4 +119,12 @@ a, button {
   font-size: 20px;
   padding: 5px;
   margin: 10px;
+}
+
+.add-link-button {
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  margin: 5px;
 }

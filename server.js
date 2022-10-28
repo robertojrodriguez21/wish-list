@@ -24,6 +24,15 @@ app.get('/items', async (req, res) => {
   res.send(allItems)
 })
 
+// Update link array in one item --> PUT
+app.put('/list/:listId/item/:itemId', async (req, res) => {
+  let updatedItem = await Item.findByIdAndUpdate(req.params.itemId, {
+    $push: { links: req.body }
+  })
+
+  res.json(updatedItem)
+})
+
 // List Routes
 // Create one list --> POST
 app.post('/createList', async (req, res) => {
