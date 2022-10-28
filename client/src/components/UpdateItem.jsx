@@ -26,7 +26,7 @@ const UpdateItem = (props) => {
 
   const updatedItem = props.updatedItem
 
-  return (
+  return list && item ? (
     <div>
       <div className='breadcrumbs'>
         <Link to={'/'}>HOME</Link> {'>'} <Link to={`/list/${list._id}`}>{list.name.toUpperCase()}</Link> {'>'} <Link to={`/list/${list._id}/item/${item._id}`}>{item.name.toUpperCase()}</Link> {'>'} EDIT ITEM
@@ -45,10 +45,10 @@ const UpdateItem = (props) => {
         <label>Budget: </label>
         <input type='text' placeholder={item.budget} value={updatedItem.budget} onChange={props.handleUpdateItemChange} name={'budget'}></input>
         <br></br><br></br>
-        <button className='add-item-button'>Add Item</button>
+        <button className='add-item-button'>Edit Item</button>
       </form>
     </div>
-  )
+  ) : null
 }
 
 export default UpdateItem

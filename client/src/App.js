@@ -93,7 +93,14 @@ function App() {
   // Update Item
   const updateItem = async (itemId, e) => {
     e.preventDefault()
-    await axios.put(`/list/:listId/item/${itemId}/updateItem`)
+    const updatedItemBody = {
+      name: updatedItem.name,
+      description: updatedItem.description,
+      image: updatedItem.image,
+      budget: parseInt(updatedItem.budget)
+    }
+
+    await axios.put(`/list/:listId/item/${itemId}/updateItem`, updatedItemBody)
   }
 
   // Delete Item

@@ -26,8 +26,8 @@ const CreateItem = (props) => {
         {console.log(list)}
         <Link to={'/'}>HOME</Link> {'>'} <Link to={`/list/${list._id}`}>{list.name.toUpperCase()}</Link> {'>'} ADD ITEM
       </div>
-      <h1>Add Item to {list.name}</h1>
-      <form className='item-form' onSubmit={handleSubmit}>
+      <div className='create-item-title'>Add Item to {list.name}</div>
+      <form className='create-item-form' onSubmit={handleSubmit}>
         <label>Name: </label>
         <input type='text' value={newItem.name} onChange={props.handleItemChange} name={'name'}></input>
         <br></br><br></br>
