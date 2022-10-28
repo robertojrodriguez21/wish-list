@@ -91,6 +91,11 @@ label {
   margin: 5px;
 }
 
+::placeholder {
+  color: black;
+  opacity: 1;
+}
+
 /* Buttons */
 a, button {
   all: unset;

@@ -24,6 +24,12 @@ function App() {
       }
     ]
   })
+  const [updatedItem, setUpdatedItem] = useState({
+    name: '',
+    description: '',
+    image: '',
+    budget: ''
+  })
   const [newList, setNewList] = useState({
     name: ''
   })
@@ -45,7 +51,12 @@ function App() {
     setNewLink({ ...newLink, [e.target.name]: e.target.value })
   }
 
+  const handleUpdateItemChange = (e) => {
+    setUpdatedItem({ ...updatedItem, [e.target.name]: e.target.value })
+  }
+
   // Item API Calls
+  // Create Item
   const addItem = async (e) => {
     e.preventDefault()
     const createdItem = {
@@ -68,6 +79,7 @@ function App() {
     await axios.put('/list/:listId/createItem', itemForList)
   }
 
+  // Add Link to Item
   const addLink = async (e) => {
     e.preventDefault()
     const createdLink = {
@@ -78,17 +90,20 @@ function App() {
     axios.put('/list/:listId/item/:itemId', createdLink)
   }
 
+  // Update Item
+  const updateItem = async (itemId, e) => {
+    e.preventDefault()
+    await axios.put(`/list/:listId/item/${itemId}/updateItem`)
+  }
+
+  // Delete Item
   const deleteItem = (itemId, e) => {
     e.preventDefault()
     axios.delete(`/list/:listId/item/${itemId}`)
   }
 
   // List API Calls
-  const deleteList = (listId, e) => {
-    e.preventDefault()
-    axios.delete(`/list/${listId}`)
-  }
-
+  // Create List
   const addList = (e) => {
     e.preventDefault()
     const createdList = {
@@ -98,8 +113,16 @@ function App() {
     axios.post('/createList', createdList)
   }
 
-  const updateList = async () => {
+  // Update List
+  const updateList = async (e) => {
+    e.preventDefault()
     await axios.put('/list/:listId/createItem')
+  }
+
+  // Delete List
+  const deleteList = (listId, e) => {
+    e.preventDefault()
+    axios.delete(`/list/${listId}`)
   }
 
   // Sets Items and Lists
@@ -166,7 +189,15 @@ function App() {
           />
           <Route
             path="/list/:listId/item/:itemId/updateItem"
-            element={<UpdateItem lists={lists} items={items} />}
+            element={
+              <UpdateItem
+                lists={lists}
+                items={items}
+                handleUpdateItemChange={handleUpdateItemChange}
+                updatedItem={updatedItem}
+                updateItem={updateItem}
+              />
+            }
           />
         </Routes>
       </main>

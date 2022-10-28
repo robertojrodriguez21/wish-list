@@ -15,6 +15,7 @@ const CreateItem = (props) => {
     await props.addItem(e)
     navigate(`/list/${list._id}`)
     window.location.reload(false)
+    await props.updateList(e)
   }
 
   const newItem = props.newItem
