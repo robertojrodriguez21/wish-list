@@ -7,6 +7,7 @@ import CreateList from './components/CreateList'
 import CreateItem from './components/CreateItem'
 import List from './components/List'
 import Item from './components/Item'
+import UpdateItem from './components/UpdateItem'
 
 function App() {
   const [items, setItems] = useState([])
@@ -16,30 +17,41 @@ function App() {
     description: '',
     image: '',
     budget: '',
-    links: {
-      websiteName: '',
-      websiteLink: ''
-    }
+    links: [
+      {
+        websiteName: '',
+        websiteLink: ''
+      }
+    ]
   })
   const [newList, setNewList] = useState({
     name: ''
   })
 
-  const addItem = (e) => {
+  const addItem = async (e) => {
     e.preventDefault()
     const createdItem = {
       name: newItem.name,
       description: newItem.description,
       image: newItem.image,
       budget: parseInt(newItem.budget),
-      links: {
-        websiteName: newItem.websiteName,
-        websiteLink: newItem.websiteLink
-      }
+      links: [
+        {
+          websiteName: newItem.websiteName,
+          websiteLink: newItem.websiteLink
+        }
+      ]
     }
 
-    axios.post('/list/:listId/createItem', createdItem)
-    axios.put('/list/:listId/createItem', createdItem)
+    const itemForList = await axios.post(
+      '/list/:listId/createItem',
+      createdItem
+    )
+    await axios.put('/list/:listId/createItem', itemForList)
+  }
+
+  const updateList = async () => {
+    await axios.put('/list/:listId/createItem')
   }
 
   const handleItemChange = (e) => {
@@ -101,6 +113,7 @@ function App() {
                 newItem={newItem}
                 handleItemChange={handleItemChange}
                 addItem={addItem}
+                updateList={updateList}
               />
             }
           />
@@ -110,7 +123,14 @@ function App() {
               <List deleteList={deleteList} lists={lists} items={items} />
             }
           />
-          <Route path="/list/:listId/item/:itemId" element={<Item />} />
+          <Route
+            path="/list/:listId/item/:itemId"
+            element={<Item lists={lists} items={items} />}
+          />
+          <Route
+            path="/list/:listId/item/:itemId/updateItem"
+            element={<UpdateItem />}
+          />
         </Routes>
       </main>
     </div>

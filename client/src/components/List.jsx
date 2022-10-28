@@ -31,11 +31,9 @@ const List = (props) => {
       <div className='detailed-list'>
         <div className='list-name'>{list.name}</div>
         {props.items.map((item) => (
-        <div className="item-card">
-          {list.items.includes(item._id) 
-          ? <Items key={item._id} listId={list._id} item={item} />
-          : null}
-        </div>
+          list.items.includes(item._id) 
+          ? <div className="item-card"><Items key={item._id} listId={list._id} item={item} /></div>
+          : null
       ))}
       </div>
     </div>

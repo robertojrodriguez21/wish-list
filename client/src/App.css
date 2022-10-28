@@ -37,6 +37,13 @@ main {
   font-weight: 700;
 }
 
+.list-name {
+  padding: 15px 20px;
+  background-color: midnightblue;
+  font-size: 30px;
+  font-weight: 800;
+}
+
 .detailed-list {
   background-color: darkslateblue;
   margin: 10px 25px;
@@ -45,13 +52,6 @@ main {
 /* Items */
 .item-card {
   padding: 10px;
-}
-
-.list-name {
-  padding: 15px 20px;
-  background-color: midnightblue;
-  font-size: 30px;
-  font-weight: 800;
 }
 
 /* Breadcrumbs */
@@ -74,19 +74,11 @@ a, button {
   cursor: pointer;
 }
 
-.create-list-button {
-  background-color: green;
-  color: white;
-  font-size: 20px;
-  padding: 5px;
-  margin: 10px;
-}
-
 .list-form .create-list-button {
   margin: 10px 0;
 }
 
-.add-item-button {
+.create-list-button, .add-item-button {
   background-color: green;
   color: white;
   font-size: 20px;
@@ -94,7 +86,7 @@ a, button {
   margin: 10px;
 }
 
-.delete-list-button {
+.delete-list-button, .delete-item-button {
   background-color: darkred;
   color: white;
   font-size: 20px;
@@ -102,3 +94,10 @@ a, button {
   margin: 10px;
 }
 
+.edit-item-button {
+  background-color: orange;
+  color: black;
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px;
+}

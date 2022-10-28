@@ -11,8 +11,8 @@ const CreateItem = (props) => {
     }
   })
 
-  const handleSubmit = (e) => {
-    props.addItem(e)
+  const handleSubmit = async (e) => {
+    await props.addItem(e)
     navigate(`/list/${list._id}`)
     window.location.reload(false)
   }
@@ -27,22 +27,22 @@ const CreateItem = (props) => {
       </div>
       <h1>Add Item to {list.name}</h1>
       <form className='item-form' onSubmit={handleSubmit}>
-        <label>Item Name: </label>
+        <label>Name: </label>
         <input type='text' value={newItem.name} onChange={props.handleItemChange} name={'name'}></input>
         <br></br><br></br>
-        <label>Item Description: </label>
+        <label>Description: </label>
         <input type='text' value={newItem.description} onChange={props.handleItemChange} name={'description'}></input>
         <br></br><br></br>
-        <label>Item Image Link: </label>
+        <label>Image Link: </label>
         <input type='text' value={newItem.image} onChange={props.handleItemChange} name={'image'}></input>
         <br></br><br></br>
-        <label>Item Budget: </label>
+        <label>Budget: </label>
         <input type='text' value={newItem.budget} onChange={props.handleItemChange} name={'budget'}></input>
         <br></br><br></br>
-        <label>Item Website Name: </label>
+        <label>Website Name: </label>
         <input type='text' value={newItem.websiteName} onChange={props.handleItemChange} name={'websiteName'}></input>
         <br></br><br></br>
-        <label>Item Website Link: </label>
+        <label>Website Link: </label>
         <input type='text' value={newItem.websiteLink} onChange={props.handleItemChange} name={'websiteLink'}></input>
         <br></br><br></br>
         <button className='add-item-button'>Add Item</button>
