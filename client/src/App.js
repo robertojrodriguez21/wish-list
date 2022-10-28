@@ -78,6 +78,11 @@ function App() {
     axios.put('/list/:listId/item/:itemId', createdLink)
   }
 
+  const deleteItem = (itemId, e) => {
+    e.preventDefault()
+    axios.delete(`/list/:listId/item/${itemId}`)
+  }
+
   // List API Calls
   const deleteList = (listId, e) => {
     e.preventDefault()
@@ -153,6 +158,7 @@ function App() {
                 lists={lists}
                 items={items}
                 handleLinkChange={handleLinkChange}
+                deleteItem={deleteItem}
                 newLink={newLink}
                 addLink={addLink}
               />

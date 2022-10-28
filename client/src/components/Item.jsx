@@ -1,7 +1,8 @@
-import {Link, useParams} from 'react-router-dom'
+import {Link, useParams, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 
 const Item = (props) => {
+  let navigate = useNavigate()
   const {listId, itemId} = useParams()
   let list
   let item
@@ -20,6 +21,14 @@ const Item = (props) => {
 
   const handleSubmit = async (e) => {
     await props.addLink(e)
+    navigate(`/`)
+    navigate(`/list/${list._id}/item/${item._id}`)
+    window.location.reload(false)
+  }
+
+  const handleDeleteItem = async (e) => {
+    await props.deleteItem(item._id, e)
+    navigate(`/list/${list._id}`)
     window.location.reload(false)
   }
 
@@ -32,7 +41,7 @@ const Item = (props) => {
       </div>
       <div className='list-buttons'>
         <button className='edit-item-button'><Link to={`/list/${list._id}/item/${item._id}/updateItem`}>Edit Item</Link></button>
-        <button className='delete-item-button'>Delete Item</button>
+        <button className='delete-item-button' onClick={handleDeleteItem}>Delete Item</button>
       </div>
       <div className='item-details'>
         <div className='item-img'><img src={item.image} alt={item.name}></img></div>

@@ -33,6 +33,12 @@ app.put('/list/:listId/item/:itemId', async (req, res) => {
   res.json(updatedItem)
 })
 
+// Delete one item --> DELETE
+app.delete('/list/:listId/item/:itemId', async (req, res) => {
+  let deletedItem = await Item.findByIdAndDelete(req.params.itemId)
+  res.json(deletedItem)
+})
+
 // List Routes
 // Create one list --> POST
 app.post('/createList', async (req, res) => {
