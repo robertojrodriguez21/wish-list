@@ -31,8 +31,8 @@ const UpdateItem = (props) => {
       <div className='breadcrumbs'>
         <Link to={'/'}>HOME</Link> {'>'} <Link to={`/list/${list._id}`}>{list.name.toUpperCase()}</Link> {'>'} <Link to={`/list/${list._id}/item/${item._id}`}>{item.name.toUpperCase()}</Link> {'>'} EDIT ITEM
       </div>
-      <div className='update-item-title'>Edit {item.name}</div>
-      <form className='item-form' onSubmit={handleSubmit}>
+      <div className='edit-item-title'>Edit {item.name}</div>
+      <form className='edit-item-form' onSubmit={handleSubmit}>
         <label>Name: </label>
         <input type='text' placeholder={item.name} value={updatedItem.name} onChange={props.handleUpdateItemChange} name={'name'}></input>
         <br></br><br></br>

@@ -49,14 +49,14 @@ main {
   padding: 10px;
 }
 
-.item-name {
+.item-name, .edit-item-title {
   padding: 15px 20px;
   background-color: midnightblue;
   font-size: 30px;
   font-weight: 800;
 }
 
-.item-description, .item-budget, .item-link-card, .item-add-link-form {
+.item-description, .item-budget, .item-link-card, .item-add-link-form, .edit-item-form {
   background-color: darkslateblue;
   padding: 10px 25px;
 }
