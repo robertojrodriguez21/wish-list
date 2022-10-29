@@ -44,7 +44,7 @@ const Item = (props) => {
       </div>
       <div className='item-details'>
         <div className='item-img'><img src={item.image} alt={item.name}></img></div>
-        <div className='item-name'>{item.name}</div>
+        <div className='item-name-title'>{item.name}</div>
         <div className='item-description'>{item.description}</div>
         <div className='item-budget'>Budget: ${item.budget}</div>
         <div className='item-links-header'>My Links</div>

@@ -19,7 +19,7 @@ main {
 }
 
 /* Lists */
-.all-list-cards, .item-link-card {
+.all-list-cards {
   display: flex;
   flex-wrap: wrap;
 }
@@ -54,7 +54,7 @@ main {
   padding: 10px;
 }
 
-.item-name, .edit-item-title {
+.item-name-title, .edit-item-title {
   padding: 15px 20px;
   background-color: midnightblue;
   font-size: 30px;
@@ -78,7 +78,7 @@ main {
   font-weight: 600;
 }
 
-.item-link {
+.item-link, .item-name {
   padding: 2px 0;
 }
 
@@ -87,6 +87,11 @@ main {
   background-color: midnightblue;
   font-size: 30px;
   font-weight: 800;
+}
+
+.item-link-card, .item-card-name {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Breadcrumbs */
