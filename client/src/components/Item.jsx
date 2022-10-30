@@ -19,8 +19,8 @@ const Item = (props) => {
     }
   })
 
-  const handleSubmit = async (e) => {
-    await props.addLink(e)
+  const handleLinkSubmit = async (e) => {
+    await props.addLink(item._id, e)
     navigate(`/list/${list._id}/item/${item._id}`)
     window.location.reload(false)
   }
@@ -56,7 +56,7 @@ const Item = (props) => {
         ))}
       </div>
       <div className='item-add-link-header'>Add Link</div>
-      <form className='item-add-link-form' onSubmit={handleSubmit}>
+      <form className='item-add-link-form' onSubmit={handleLinkSubmit}>
         <label>Website Name: </label>
         <input type='text' value={newLink.websiteName} onChange={props.handleLinkChange} name={'websiteName'}></input>
         <br></br><br></br>

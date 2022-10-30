@@ -10,6 +10,18 @@ import Item from './components/Item'
 import UpdateItem from './components/UpdateItem'
 
 function App() {
+  // Sets Items and Lists
+  useEffect(() => {
+    const apiCall = async () => {
+      let listResponse = await axios.get('http://localhost:3001/lists')
+      setLists(listResponse.data)
+      let itemResponse = await axios.get('http://localhost:3001/items')
+      setItems(itemResponse.data)
+    }
+
+    apiCall()
+  }, [])
+
   const [items, setItems] = useState([])
   const [lists, setLists] = useState([])
   const [newItem, setNewItem] = useState({
@@ -80,14 +92,14 @@ function App() {
   }
 
   // Add Link to Item
-  const addLink = async (e) => {
+  const addLink = async (itemId, e) => {
     e.preventDefault()
     const createdLink = {
       websiteName: newLink.websiteName,
       websiteLink: newLink.websiteLink
     }
 
-    axios.put('/list/:listId/item/:itemId', createdLink)
+    axios.put(`/list/:listId/item/${itemId}`, createdLink)
   }
 
   // Update Item
@@ -123,7 +135,7 @@ function App() {
   // Update List
   const updateList = async (e) => {
     e.preventDefault()
-    await axios.put('/list/:listId/createItem')
+    axios.put('/list/:listId/createItem')
   }
 
   // Delete List
@@ -131,18 +143,6 @@ function App() {
     e.preventDefault()
     axios.delete(`/list/${listId}`)
   }
-
-  // Sets Items and Lists
-  useEffect(() => {
-    const apiCall = async () => {
-      let listResponse = await axios.get('http://localhost:3001/lists')
-      setLists(listResponse.data)
-      let itemResponse = await axios.get('http://localhost:3001/items')
-      setItems(itemResponse.data)
-    }
-
-    apiCall()
-  }, [])
 
   // Main
   return (

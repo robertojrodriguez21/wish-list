@@ -30,6 +30,7 @@ app.put('/list/:listId/item/:itemId', async (req, res) => {
     $push: { links: req.body }
   })
 
+  console.log(updatedItem)
   res.json(updatedItem)
 })
 

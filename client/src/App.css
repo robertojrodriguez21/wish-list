@@ -155,7 +155,7 @@ a, button {
   margin: 5px;
 }
 
-.delete-link-button {
+.delete-link-button, .quick-delete-item-button {
   background-color: darkred;
   color: white;
   padding: 2px 5px;
