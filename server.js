@@ -55,12 +55,12 @@ app.get('/lists', async (req, res) => {
 
 // Update one list --> PUT
 app.put('/list/:listId/createItem', async (req, res) => {
-  //const itemForList = await Item.find({}).sort({ createdAt: -1 }).limit(1)
-  console.log(req.body)
+  const itemForList = await Item.find({}).sort({ createdAt: -1 }).limit(1)
   let updatedList = await List.findByIdAndUpdate(req.params.listId, {
-    $push: { items: req.body }
+    $push: { items: itemForList }
   })
 
+  console.log(updatedList)
   res.json(updatedList)
 })
 

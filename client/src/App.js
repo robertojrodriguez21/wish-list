@@ -84,11 +84,7 @@ function App() {
       ]
     }
 
-    const itemForList = await axios.post(
-      '/list/:listId/createItem',
-      createdItem
-    )
-    await axios.put('/list/:listId/createItem', itemForList)
+    await axios.post('/list/:listId/createItem', createdItem)
   }
 
   // Add Link to Item
@@ -133,9 +129,9 @@ function App() {
   }
 
   // Update List
-  const updateList = async (e) => {
+  const updateList = async (listId, e) => {
     e.preventDefault()
-    axios.put('/list/:listId/createItem')
+    axios.put(`/list/${listId}/createItem`)
   }
 
   // Delete List

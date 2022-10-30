@@ -13,8 +13,8 @@ const CreateItem = (props) => {
 
   const handleSubmit = async (e) => {
     await props.addItem(e)
+    await props.updateList(list._id, e)
     navigate(`/list/${list._id}`)
-    await props.updateList(e)
     window.location.reload(false)
   }
 
