@@ -19,7 +19,7 @@ const UpdateItem = (props) => {
   })
 
   const handleSubmit = async (e) => {
-    await props.updateItem(item._id, e)
+    await props.updateItem(item, e)
     navigate(`/list/${list._id}/item/${item._id}`)
     window.location.reload(false)
   }

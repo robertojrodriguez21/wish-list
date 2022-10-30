@@ -99,16 +99,45 @@ function App() {
   }
 
   // Update Item
-  const updateItem = async (itemId, e) => {
+  const updateItem = async (item, e) => {
     e.preventDefault()
-    const updatedItemBody = {
-      name: updatedItem.name,
-      description: updatedItem.description,
-      image: updatedItem.image,
-      budget: parseInt(updatedItem.budget)
+    let name, description, image, budget
+
+    if (updatedItem.name === '') {
+      name = item.name
+    } else {
+      name = updatedItem.name
     }
 
-    await axios.put(`/list/:listId/item/${itemId}/updateItem`, updatedItemBody)
+    if (updatedItem.description === '') {
+      description = item.description
+    } else {
+      description = updatedItem.description
+    }
+
+    if (updatedItem.image === '') {
+      image = item.image
+    } else {
+      image = updatedItem.image
+    }
+
+    if (updatedItem.budget === '') {
+      budget = item.budget
+    } else {
+      budget = parseInt(updatedItem.budget)
+    }
+
+    const updatedItemBody = {
+      name: name,
+      description: description,
+      image: image,
+      budget: budget
+    }
+
+    await axios.put(
+      `/list/:listId/item/${item._id}/updateItem`,
+      updatedItemBody
+    )
   }
 
   // Delete Item

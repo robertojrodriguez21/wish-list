@@ -24,13 +24,26 @@ app.get('/items', async (req, res) => {
   res.send(allItems)
 })
 
-// Update link array in one item --> PUT
+// Update link in one item --> PUT
 app.put('/list/:listId/item/:itemId', async (req, res) => {
   let updatedItem = await Item.findByIdAndUpdate(req.params.itemId, {
     $push: { links: req.body }
   })
 
-  console.log(updatedItem)
+  res.json(updatedItem)
+})
+
+// Update one item --> PUT
+app.put('/list/:listId/item/:itemId/updateItem', async (req, res) => {
+  let updatedItem = await Item.findByIdAndUpdate(req.params.itemId, {
+    $set: {
+      name: req.body.name,
+      description: req.body.description,
+      image: req.body.image,
+      budget: req.body.budget
+    }
+  })
+
   res.json(updatedItem)
 })
 
