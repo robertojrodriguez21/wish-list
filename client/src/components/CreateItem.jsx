@@ -2,6 +2,8 @@ import {Link, useParams, useNavigate} from 'react-router-dom'
 
 const CreateItem = (props) => {
   let navigate = useNavigate()
+
+  // Sets List for page
   const {listId} = useParams()
   let list
   
@@ -11,6 +13,7 @@ const CreateItem = (props) => {
     }
   })
 
+  // Create Item and Update List Function
   const handleSubmit = async (e) => {
     await props.addItem(e)
     await props.updateList(list._id, e)

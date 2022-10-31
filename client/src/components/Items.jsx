@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 const Items = (props) => {
   let navigate = useNavigate()
 
+  // Delete Item Function
   const handleDeleteItem = async (e) => {
     await props.deleteItem(props.item._id, e)
     navigate(`/`)

@@ -7,12 +7,14 @@ const List = (props) => {
   const [list, setList] = useState('')
   let {listId} = useParams()
 
+  // Set List When Page is Loaded
   useEffect(() => {
     let selectedList = props.lists.find((list) => list._id === listId)
 
     setList(selectedList)
   }, [props.lists, listId])
 
+  // Delete List function
   const handleDeleteList = async (e) => {
     await props.deleteList(list._id, e)
     navigate('/')

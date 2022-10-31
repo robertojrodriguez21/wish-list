@@ -3,6 +3,7 @@ import {useNavigate, Link} from 'react-router-dom'
 const CreateList = (props) => {
   let navigate = useNavigate()
 
+  // Create List Function
   const handleSubmit = (e) => {
     props.addList(e)
     navigate('/')

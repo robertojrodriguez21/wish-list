@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 const Item = (props) => {
   let navigate = useNavigate()
+
+  // Sets List and Item for Page
   const {listId, itemId} = useParams()
   let list
   let item
@@ -19,12 +21,14 @@ const Item = (props) => {
     }
   })
 
+  // Add Link Function
   const handleLinkSubmit = async (e) => {
     await props.addLink(item._id, e)
     navigate(`/list/${list._id}/item/${item._id}`)
     window.location.reload(false)
   }
 
+  // Delete Item Function
   const handleDeleteItem = async (e) => {
     await props.deleteItem(item._id, e)
     navigate(`/list/${list._id}`)
