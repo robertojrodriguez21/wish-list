@@ -1,10 +1,17 @@
-import {Link} from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Items = (props) => {
+  let navigate = useNavigate()
+
+  const handleDeleteItem = async (e) => {
+    await props.deleteItem(props.item._id, e)
+    navigate(`/`)
+    window.location.reload(false)
+  }
+
   return (
     <div className="item-card-name">
-      <div><button className='quick-delete-item-button'>X</button></div>
+      <div><button className='quick-delete-item-button' onClick={handleDeleteItem}>X</button></div>
       <div className='item-name'><Link to={`/list/${props.listId}/item/${props.item._id}`}>{props.item.name}</Link></div>
     </div>
   )

@@ -177,7 +177,12 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Landing lists={lists} items={items} />} />
+          <Route
+            path="/"
+            element={
+              <Landing lists={lists} items={items} deleteItem={deleteItem} />
+            }
+          />
           <Route
             path="/createList"
             element={

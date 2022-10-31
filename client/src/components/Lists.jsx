@@ -12,7 +12,7 @@ const Lists = (props) => {
       </div>
       {props.items.map((item) => (
         props.list.items.includes(item._id) 
-        ? <div className="item-card">{<Items key={item._id} listId={props.list._id} item={item} />}</div>
+        ? <div className="item-card">{<Items key={item._id} listId={props.list._id} item={item} deleteItem={props.deleteItem} />}</div>
         : null
       ))}
     </div>
