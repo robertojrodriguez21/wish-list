@@ -24,6 +24,11 @@ main {
   flex-wrap: wrap;
 }
 
+.list-card {
+  min-width: 250px;
+  max-width: 500px;
+}
+
 .list-card, .detailed-list {
   background-color: darkslateblue;
   margin: 10px 25px;
@@ -78,7 +83,7 @@ main {
   font-weight: 600;
 }
 
-.item-link, .item-name {
+.item-name {
   padding: 2px 0;
 }
 

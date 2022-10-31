@@ -24,7 +24,7 @@ app.get('/items', async (req, res) => {
   res.send(allItems)
 })
 
-// Update link in one item --> PUT
+// Update and add link in one item --> PUT
 app.put('/list/:listId/item/:itemId', async (req, res) => {
   let updatedItem = await Item.findByIdAndUpdate(req.params.itemId, {
     $push: { links: req.body }
