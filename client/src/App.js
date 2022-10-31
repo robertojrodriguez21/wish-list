@@ -177,12 +177,14 @@ function App() {
       </header>
       <main>
         <Routes>
+          {/* Landing Page */}
           <Route
             path="/"
             element={
               <Landing lists={lists} items={items} deleteItem={deleteItem} />
             }
           />
+          {/* Create List Page */}
           <Route
             path="/createList"
             element={
@@ -193,6 +195,14 @@ function App() {
               />
             }
           />
+          {/* List Page */}
+          <Route
+            path="/list/:listId"
+            element={
+              <List deleteList={deleteList} lists={lists} items={items} />
+            }
+          />
+          {/* Create Item Page */}
           <Route
             path="/list/:listId/createItem"
             element={
@@ -205,12 +215,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="/list/:listId"
-            element={
-              <List deleteList={deleteList} lists={lists} items={items} />
-            }
-          />
+          {/* Item Page */}
           <Route
             path="/list/:listId/item/:itemId"
             element={
@@ -224,6 +229,7 @@ function App() {
               />
             }
           />
+          {/* Update Item Page */}
           <Route
             path="/list/:listId/item/:itemId/updateItem"
             element={
