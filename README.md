@@ -8,6 +8,12 @@ Personal Wish List Application
 
 ---
 
+## Deployed on Heroku
+
+[Heroku](https://wish-list-1.herokuapp.com/)
+
+---
+
 ## Trello Board
 
 [Wish List Trello Board](https://trello.com/b/tLLiLq1r/wish-list)
@@ -50,9 +56,37 @@ Personal Wish List Application
 
 ## Final Product Images
 
+### Home/Landing Page
+
+![Home Page](./images/Home.png)
+
+### Create List Page
+
+![Create List Page](./images/Create%20List.png)
+
+### List Page
+
+![List Page](./images/List.png)
+
+### Add Item Page
+
+![Add Item Page](./images/Add%20Item.png)
+
+### Item Page
+
+![Item Page](./images/Item.png)
+
+### Edit Item Page
+
+![Edit Item Page](./images/Edit%20Item.png)
+
 ---
 
 ## Future Updates
+
+### - User Profiles
+
+### - Remove Link on Item Page
 
 ---
 
