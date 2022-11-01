@@ -13,9 +13,9 @@ function App() {
   // Sets Items and Lists
   useEffect(() => {
     const apiCall = async () => {
-      let listResponse = await axios.get('http://localhost:3001/lists')
+      let listResponse = await axios.get('/lists')
       setLists(listResponse.data)
-      let itemResponse = await axios.get('http://localhost:3001/items')
+      let itemResponse = await axios.get('/items')
       setItems(itemResponse.data)
     }
 
