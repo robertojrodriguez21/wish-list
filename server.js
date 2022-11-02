@@ -73,7 +73,6 @@ app.put('/list/:listId/createItem', async (req, res) => {
     $push: { items: itemForList }
   })
 
-  console.log(updatedList)
   res.json(updatedList)
 })
 
