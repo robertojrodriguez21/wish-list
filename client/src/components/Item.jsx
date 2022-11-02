@@ -61,10 +61,10 @@ const Item = (props) => {
       <div className='item-add-link-header'>Add Link</div>
       <form className='item-add-link-form' onSubmit={handleLinkSubmit}>
         <label>Website Name: </label>
-        <input type='text' value={newLink.websiteName} onChange={props.handleLinkChange} name={'websiteName'}></input>
+        <input required type='text' value={newLink.websiteName} onChange={props.handleLinkChange} name={'websiteName'}></input>
         <br></br><br></br>
         <label>Website Link: </label>
-        <input type='text' value={newLink.websiteLink} onChange={props.handleLinkChange} name={'websiteLink'}></input>
+        <input required type='text' value={newLink.websiteLink} onChange={props.handleLinkChange} name={'websiteLink'}></input>
         <br></br><br></br>
         <button className='add-link-button'>Add Link</button>
       </form>

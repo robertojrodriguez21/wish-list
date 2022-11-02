@@ -32,22 +32,22 @@ const CreateItem = (props) => {
       <div className='create-item-title'>Add Item to {list.name}</div>
       <form className='create-item-form' onSubmit={handleSubmit}>
         <label>Name: </label>
-        <input type='text' value={newItem.name} onChange={props.handleItemChange} name={'name'}></input>
+        <input required type='text' value={newItem.name} onChange={props.handleItemChange} name={'name'}></input>
         <br></br><br></br>
         <label>Description: </label>
-        <input type='text' value={newItem.description} onChange={props.handleItemChange} name={'description'}></input>
+        <input required type='text' value={newItem.description} onChange={props.handleItemChange} name={'description'}></input>
         <br></br><br></br>
         <label>Image Link: </label>
         <input type='text' value={newItem.image} onChange={props.handleItemChange} name={'image'}></input>
         <br></br><br></br>
         <label>Budget: </label>
-        <input type='text' value={newItem.budget} onChange={props.handleItemChange} name={'budget'}></input>
+        <input required type='text' value={newItem.budget} onChange={props.handleItemChange} name={'budget'}></input>
         <br></br><br></br>
         <label>Website Name: </label>
-        <input type='text' value={newItem.websiteName} onChange={props.handleItemChange} name={'websiteName'}></input>
+        <input required type='text' value={newItem.websiteName} onChange={props.handleItemChange} name={'websiteName'}></input>
         <br></br><br></br>
         <label>Website Link: </label>
-        <input type='text' value={newItem.websiteLink} onChange={props.handleItemChange} name={'websiteLink'}></input>
+        <input required type='text' value={newItem.websiteLink} onChange={props.handleItemChange} name={'websiteLink'}></input>
         <br></br><br></br>
         <button className='add-item-button'>Add Item</button>
       </form>
